@@ -33,6 +33,7 @@ class Cat(models.Model):
     )
 
     class Meta:
+        ordering = ('-created_at',)
         verbose_name = 'Кот'
         verbose_name_plural = 'Коты'
 
