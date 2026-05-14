@@ -1,4 +1,5 @@
 from django.contrib.auth.models import User
+from django.core.validators import MaxValueValidator, MinValueValidator
 from django.db import models
 
 
@@ -24,6 +25,10 @@ class Cat(models.Model):
     fluffiness = models.PositiveIntegerField(
         'Пушистость',
         default=1,
+        validators=[
+            MinValueValidator(1),
+            MaxValueValidator(10),
+        ]
     )
     created_at = models.DateTimeField(
         auto_now_add=True,

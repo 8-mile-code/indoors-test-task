@@ -21,10 +21,3 @@ class CatSerializer(serializers.ModelSerializer):
             'created_at',
             'updated_at',
         )
-
-    def validate_fluffiness(self, value):
-        if not 1 <= value <= 10:
-            raise serializers.ValidationError(
-                'Fluffiness must be between 1 and 10.'
-            )
-        return value

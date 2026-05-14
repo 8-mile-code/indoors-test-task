@@ -1,0 +1,8 @@
+name: Local
+values:
+  - key: BASE_URL
+    value: ''
+  - key: ACCESS_TOKEN
+    value: ''
+  - key: REFRESH_TOKEN
+    value: ''

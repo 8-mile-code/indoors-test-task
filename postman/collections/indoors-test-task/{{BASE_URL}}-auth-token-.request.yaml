@@ -1,0 +1,27 @@
+$kind: http-request
+name: "{{BASE_URL}}/auth/token/"
+url: "{{BASE_URL}}/auth/token/"
+method: POST
+body:
+  type: json
+  content: |-
+    {
+      "username": "danil2",
+      "password": "testpassword123"
+    }
+scripts:
+  - type: beforeRequest
+    code: |-
+      const response = pm.response.json();
+
+      pm.environment.set(
+          "ACCESS_TOKEN",
+          response.access
+      );
+
+      pm.environment.set(
+          "REFRESH_TOKEN",
+          response.refresh
+      );
+    language: text/javascript
+order: 3549793224766864
