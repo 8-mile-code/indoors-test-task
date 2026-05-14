@@ -1,9 +1,8 @@
 from rest_framework import viewsets
 from rest_framework.permissions import IsAuthenticated
 
-from api.permissions import IsOwner
-
 from .models import Cat
+from .permissions import IsOwner
 from .serializers import CatSerializer
 
 

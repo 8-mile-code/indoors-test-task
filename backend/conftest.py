@@ -18,7 +18,7 @@ def user(django_user_model):
 
 
 @pytest.fixture
-def anotther_user(django_user_model):
+def another_user(django_user_model):
     """Create another regular user."""
     return django_user_model.objects.create_user(
         username='ivan',
@@ -40,6 +40,6 @@ def cat_data():
     return {
         'name': 'Barsik',
         'age': 2,
-        'breed': 'Sibarian',
+        'breed': 'Siberian',
         'fluffiness': 8,
     }
