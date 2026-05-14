@@ -1,8 +1,7 @@
 import pytest
+from cats.models import Cat
 from django.urls import reverse
 from rest_framework import status
-
-from cats.models import Cat
 
 
 @pytest.mark.django_db
