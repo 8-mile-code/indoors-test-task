@@ -50,6 +50,8 @@ ALLOWED_HOSTS = env_list(
 # Application definition
 
 INSTALLED_APPS = [
+    'daphne',
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -59,6 +61,7 @@ INSTALLED_APPS = [
 
     'rest_framework',
     'corsheaders',
+    'channels',
 
     'api',
     'cats',
@@ -95,6 +98,8 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'config.wsgi.application'
+
+ASGI_APPLICATION = 'config.asgi.application'
 
 
 # Database
@@ -179,3 +184,17 @@ CSRF_TRUSTED_ORIGINS = env_list(
     'CSRF_TRUSTED_ORIGINS',
     'http://localhost:4200,http://127.0.0.1:4200',
 )
+
+REDIS_HOST = os.getenv('REDIS_HOST', 'localhost')
+REDIS_PORT = int(os.getenv('REDIS_PORT', '6379'))
+
+CHANNEL_LAYERS = {
+    'default': {
+        'BACKEND': 'channels_redis.core.RedisChannelLayer',
+        'CONFIG': {
+            'hosts': [
+                (REDIS_HOST, REDIS_PORT),
+            ],
+        },
+    },
+}
