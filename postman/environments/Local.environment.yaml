@@ -6,3 +6,7 @@ values:
     value: ''
   - key: REFRESH_TOKEN
     value: ''
+  - key: ACCESS_TOKEN_USER_2
+    value: ''
+  - key: REFRESH_TOKEN_USER_2
+    value: ''
