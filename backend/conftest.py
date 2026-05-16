@@ -27,6 +27,15 @@ def another_user(django_user_model):
 
 
 @pytest.fixture
+def third_user(django_user_model):
+    """Create third regular user."""
+    return django_user_model.objects.create_user(
+        username='petr',
+        password='testpassword123',
+    )
+
+
+@pytest.fixture
 def auth_client(user):
     """Return DRF API client with authenticated user."""
     client = APIClient()
