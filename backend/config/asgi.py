@@ -11,7 +11,8 @@ os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
 
 django_asgi_app = get_asgi_application()
 
-# Import websocket routing after Django setup to ensure apps are loaded.
+# Import websocket modules after Django app loading because they import
+# auth/models-related code that requires the app registry to be ready.
 from chat.middleware import JWTAuthMiddleware  # noqa: E402
 from chat.routing import websocket_urlpatterns  # noqa: E402
 
