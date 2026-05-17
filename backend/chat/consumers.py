@@ -7,6 +7,7 @@ from .services import create_message
 
 
 class ChatConsumer(AsyncWebsocketConsumer):
+    """Handle authenticated private WebSocket messages between users."""
     async def connect(self):
         self.user = self.scope['user']
 
@@ -30,7 +31,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
                 self.channel_name,
             )
 
-    async def send_json(self, payload):
+    async def send_json(self, payload: dict) -> None:
         await self.send(
             text_data=json.dumps(
                 payload,
@@ -38,7 +39,7 @@ class ChatConsumer(AsyncWebsocketConsumer):
             )
         )
 
-    async def receive(self, text_data):
+    async def receive(self, text_data: str) -> None:
         try:
             data = json.loads(text_data)
         except JSONDecodeError:
@@ -142,5 +143,5 @@ class ChatConsumer(AsyncWebsocketConsumer):
             }
         )
 
-    async def chat_message(self, event):
+    async def chat_message(self, event: dict) -> None:
         await self.send_json(event['message'])
