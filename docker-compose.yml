@@ -1,4 +1,18 @@
 services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    container_name: indoors-backend
+    command: uv run daphne -b 0.0.0.0 -p 8000 config.asgi:application
+    env_file:
+      - .env
+    ports:
+      - "${BACKEND_PORT:-8000}:8000"
+    depends_on:
+      - postgres
+      - redis
+
   postgres:
     image: postgres:17-alpine
     container_name: indoors-postgres
