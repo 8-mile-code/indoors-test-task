@@ -8,7 +8,7 @@ from rest_framework_simplejwt.tokens import AccessToken
 
 
 @database_sync_to_async
-def get_user_by_token(token):
+def get_user_by_token(token: str):
     try:
         access_token = AccessToken(token)
         user_id = access_token['user_id']
@@ -20,6 +20,9 @@ def get_user_by_token(token):
 
 
 class JWTAuthMiddleware:
+    """Authenticate WebSocket connections
+    using a JWT access token query parameter.
+    """
     def __init__(self, app):
         self.app = app
 
