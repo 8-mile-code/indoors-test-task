@@ -16,11 +16,11 @@ from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-def env_bool(name, default=False):
+def env_bool(name: str, default: bool = False) -> bool:
     return os.getenv(name, str(default)).lower() in ('true', '1', 't')
 
 
-def env_list(name, default=''):
+def env_list(name: str, default: str = ''):
     return [
         item.strip()
         for item in os.getenv(name, default).split(',')
