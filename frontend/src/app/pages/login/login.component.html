@@ -1,0 +1,32 @@
+<h2>Вход</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <label>
+    Username
+    <input
+      type="text"
+      name="username"
+      [(ngModel)]="username"
+      required
+    />
+  </label>
+
+  <label>
+    Password
+    <input
+      type="password"
+      name="password"
+      [(ngModel)]="password"
+      required
+    />
+  </label>
+
+  <button type="submit">Войти</button>
+</form>
+
+<p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+<p>
+  Нет аккаунта?
+  <a routerLink="/register">Зарегистрироваться</a>
+</p>

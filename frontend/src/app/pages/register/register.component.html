@@ -1,0 +1,33 @@
+<h2>Регистрация</h2>
+
+<form (ngSubmit)="onSubmit()">
+  <label>
+    Username
+    <input
+      type="text"
+      name="username"
+      [(ngModel)]="username"
+      required
+    />
+  </label>
+
+  <label>
+    Password
+    <input
+      type="password"
+      name="password"
+      [(ngModel)]="password"
+      required
+    />
+  </label>
+
+  <button type="submit">Зарегистрироваться</button>
+</form>
+
+<p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+<p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+<p>
+  Уже есть аккаунт?
+  <a routerLink="/login">Войти</a>
+</p>
