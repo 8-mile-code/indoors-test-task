@@ -1,2 +1,90 @@
-<h2>Коты</h2>
-<p>Страница котов будет добавлена следующим шагом.</p>
+<button type="button" (click)="logout()">Выйти</button>
+
+<section>
+  <h3>{{ editingCatId ? 'Редактировать кота' : 'Создать кота' }}</h3>
+
+  <form (ngSubmit)="onSubmit()">
+    <label>
+      Имя
+      <input
+        type="text"
+        name="name"
+        [(ngModel)]="name"
+        required
+      />
+    </label>
+
+    <label>
+      Возраст
+      <input
+        type="number"
+        name="age"
+        [(ngModel)]="age"
+        min="0"
+        required
+      />
+    </label>
+
+    <label>
+      Порода
+      <input
+        type="text"
+        name="breed"
+        [(ngModel)]="breed"
+      />
+    </label>
+
+    <label>
+      Пушистость от 1 до 10
+      <input
+        type="number"
+        name="fluffiness"
+        [(ngModel)]="fluffiness"
+        min="1"
+        max="10"
+        required
+      />
+    </label>
+
+    <button type="submit">
+      {{ editingCatId ? 'Сохранить' : 'Создать' }}
+    </button>
+
+    <button
+      type="button"
+      *ngIf="editingCatId"
+      (click)="cancelEdit()"
+    >
+      Отмена
+    </button>
+  </form>
+</section>
+
+<p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+<p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+<section>
+  <h3>Мои коты</h3>
+
+  <p *ngIf="cats.length === 0">
+    Пока котов нет.
+  </p>
+
+  <ul>
+    <li *ngFor="let cat of cats">
+      <strong>{{ cat.name }}</strong>
+      —
+      возраст: {{ cat.age }},
+      порода: {{ cat.breed || 'не указана' }},
+      пушистость: {{ cat.fluffiness }}
+
+      <button type="button" (click)="editCat(cat)">
+        Редактировать
+      </button>
+
+      <button type="button" (click)="deleteCat(cat)">
+        Удалить
+      </button>
+    </li>
+  </ul>
+</section>
