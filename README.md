@@ -461,3 +461,7 @@ user_<id>
 - сохраняет сообщение в базе данных;
 - отправляет сообщение получателю через WebSocket;
 - отправляет отправителю подтверждение.
+
+## License
+
+This project was created as a test assignment for evaluation purposes. No open-source license is provided.
