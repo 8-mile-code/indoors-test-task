@@ -22,4 +22,11 @@ export const routes: Routes = [
     loadComponent: () =>
       import('./pages/cats/cats.component').then((m) => m.CatsComponent),
   },
+  {
+    path: 'messages',
+    loadComponent: () =>
+      import('./pages/messages/messages.component').then(
+        (m) => m.MessagesComponent,
+      ),
+  },
 ];

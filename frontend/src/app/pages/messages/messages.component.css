@@ -1,0 +1,47 @@
+section {
+  margin-bottom: 24px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-width: 360px;
+}
+
+label {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+input,
+textarea {
+  padding: 8px;
+}
+
+textarea {
+  min-height: 80px;
+}
+
+button {
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+li {
+  margin-bottom: 12px;
+}
+
+small {
+  display: block;
+  color: #666;
+}
+
+.error {
+  color: darkred;
+}
+
+.success {
+  color: darkgreen;
+}

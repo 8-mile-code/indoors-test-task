@@ -1,0 +1,52 @@
+<h2>Сообщения</h2>
+
+<section>
+  <h3>Отправить сообщение</h3>
+
+  <form (ngSubmit)="sendMessage()">
+    <label>
+      ID получателя
+      <input
+        type="number"
+        name="receiverId"
+        [(ngModel)]="receiverId"
+        required
+      />
+    </label>
+
+    <label>
+      Текст
+      <textarea
+        name="text"
+        [(ngModel)]="text"
+        required
+      ></textarea>
+    </label>
+
+    <button type="submit">Отправить</button>
+  </form>
+</section>
+
+<p class="success" *ngIf="successMessage">{{ successMessage }}</p>
+<p class="error" *ngIf="errorMessage">{{ errorMessage }}</p>
+
+<section>
+  <h3>История сообщений</h3>
+
+  <p *ngIf="messages.length === 0">
+    Сообщений пока нет.
+  </p>
+
+  <ul>
+    <li *ngFor="let message of messages">
+      <strong>{{ message.sender_username || 'unknown' }}</strong>
+      →
+      user {{ message.receiver_id }}:
+      {{ message.text }}
+
+      <small *ngIf="message.created_at">
+        {{ message.created_at }}
+      </small>
+    </li>
+  </ul>
+</section>
