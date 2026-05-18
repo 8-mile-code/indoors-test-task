@@ -1,14 +1,14 @@
-<header>
+<header class="app-header">
   <h1>Cat Breeders Service</h1>
 
-  <nav>
-    <a routerLink="/login">Login</a>
-    <a routerLink="/register">Register</a>
-    <a routerLink="/cats">Cats</a>
-    <a routerLink="/messages">Messages</a>
+  <nav class="app-nav" aria-label="Primary navigation">
+    <a routerLink="/login" routerLinkActive="active">Login</a>
+    <a routerLink="/register" routerLinkActive="active">Register</a>
+    <a routerLink="/cats" routerLinkActive="active">Cats</a>
+    <a routerLink="/messages" routerLinkActive="active">Messages</a>
   </nav>
 </header>
 
-<main>
+<main class="app-main">
   <router-outlet></router-outlet>
 </main>

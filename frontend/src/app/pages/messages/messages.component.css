@@ -6,7 +6,7 @@ form {
   display: flex;
   flex-direction: column;
   gap: 12px;
-  max-width: 360px;
+  max-width: 460px;
 }
 
 label {
@@ -17,24 +17,43 @@ label {
 
 input,
 textarea {
-  padding: 8px;
+  border: 1px solid #cfd8e6;
+  border-radius: 8px;
+  padding: 10px 12px;
 }
 
 textarea {
-  min-height: 80px;
+  min-height: 110px;
+  resize: vertical;
 }
 
 button {
-  padding: 8px 12px;
+  border: 0;
+  border-radius: 8px;
+  background: #0d6efd;
+  color: #ffffff;
+  font-weight: 700;
+  padding: 10px 14px;
   cursor: pointer;
 }
 
+ul {
+  display: grid;
+  gap: 12px;
+  list-style: none;
+  padding: 0;
+}
+
 li {
-  margin-bottom: 12px;
+  border: 1px solid #d8dee8;
+  border-radius: 8px;
+  background: #ffffff;
+  padding: 14px 16px;
 }
 
 small {
   display: block;
+  margin-top: 4px;
   color: #666;
 }
 
